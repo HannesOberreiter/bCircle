@@ -9,6 +9,7 @@ Simple Canvas Image which show the Bee and also Varroa Life Circle, inside a boo
 * Varroa Image: Varroa data provided by Mac Howard : macmar73@gmail.com
 * Code Hannes Oberreiter, www.btree.at
 
-Distributed under Creative Commons Licence: 
-Attribution-Non-Commercial-Share Alike 2.5 UK: Scotland.
+# license
+
+This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 2.5 Generic License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 
