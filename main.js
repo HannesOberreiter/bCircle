@@ -17,9 +17,14 @@
     var cx = outerCanvas.width();
 
     var background = new Image();
-    background.src = "./img/circle-bg.svg";
+    background.src = "./img/circle-bg.png";
+    background.width = cx;
+    background.height = cx;
+
     var innerCircle = new Image();
-    innerCircle.src = "./img/circle-bee.svg";
+    innerCircle.src = "./img/circle-bee.png";
+    innerCircle.width = cx;
+    innerCircle.height = cx;
 
 
     //Set Canvas Size from Outer Box
@@ -33,12 +38,13 @@
       cx = outerCanvas.width();
       canvas.width = cx;
       canvas.height = cx;
-      redrawImage();
+      redrawBG();
     });
 
-    background.onload = function(){ redrawImage(); }
+    background.onload = function(){ redrawBG(); }
 
-    function redrawImage () {
+    function redrawBG ()
+    {
       ctx.clearRect(0, 0, cx, cx);
       ctx.drawImage(background, 0, 0, cx, cx);
       ctx.save();
@@ -61,8 +67,8 @@
 
     function spinImage()
     {
-      r = r + (1.5*Math.PI/180);
-      redrawImage();
+      r = r + (1.47*Math.PI/180);
+      redrawBG();
     }
 
     $("#circleCanvas").mousedown(handleMouseDown);
@@ -72,14 +78,14 @@
     $("#btnCircleSpin").mouseup(handleMouseUp);
 
     $("#btnCircleBee").on("click", function(){
-      innerCircle.src = "./img/circle-bee.svg";
+      innerCircle.src = "./img/circle-bee.png";
       r = 0;
-      innerCircle.onload = function(){ redrawImage(); }
+      innerCircle.onload = function(){ redrawBG(); }
     });
     $("#btnCircleVarroa").on("click", function(){
-      innerCircle.src = "./img/circle-varroa.svg";
+      innerCircle.src = "./img/circle-varroa.png";
       r = 0;
-      innerCircle.onload = function(){ redrawImage(); }
+      innerCircle.onload = function(){ redrawBG(); }
     });
 
 
