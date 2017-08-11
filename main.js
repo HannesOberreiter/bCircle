@@ -68,6 +68,9 @@
     $("#circleCanvas").mousedown(handleMouseDown);
     $("#circleCanvas").mouseup(handleMouseUp);
 
+    $("#btnCircleSpin").mousedown(handleMouseDown);
+    $("#btnCircleSpin").mouseup(handleMouseUp);
+
     $("#btnCircleBee").on("click", function(){
       innerCircle.src = "./img/circle-bee.svg";
       r = 0;
