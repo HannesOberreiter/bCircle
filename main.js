@@ -14,6 +14,7 @@
     var ctx = canvas.getContext("2d");
     var r = 0;
     var isDown;
+    var flag = false;
     var cx = outerCanvas.width();
 
     var background = new Image();
@@ -55,13 +56,16 @@
     }
 
     function handleMouseDown(e) {
+      handleMouseUp(); //to clear it if any intervall is open
       isDown = setInterval(spinImage, 100 /*execute every 100ms*/);
+      flag = true;
     }
 
     function handleMouseUp(e) {
       if(isDown)
       {
         clearInterval(isDown);
+        flag = false;
       }
     }
 
@@ -73,9 +77,24 @@
 
     $("#circleCanvas").mousedown(handleMouseDown);
     $("#circleCanvas").mouseup(handleMouseUp);
+    $('#circleCanvas').on("touchstart", handleMouseDown);
+    $('#circleCanvas').on("touchend", handleMouseUp);
 
-    $("#btnCircleSpin").mousedown(handleMouseDown);
-    $("#btnCircleSpin").mouseup(handleMouseUp);
+    $("#btnCircleSpin").on('click', function(){
+      if(!flag)
+      {
+        clearInterval(isDown);
+        isDown = setInterval(spinImage, 100 /*execute every 100ms*/);
+        flag = true;
+        $(this).text('Stop Spin');
+      } else {
+        clearInterval(isDown);
+        flag = false;
+        $(this).text('Spin circle');
+      }
+    });
+
+
 
     $("#btnCircleBee").on("click", function(){
       innerCircle.src = "./img/circle-bee.png";
